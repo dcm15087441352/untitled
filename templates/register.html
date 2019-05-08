@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="{{ url_for('register') }}" method="post">
+        <p>用户名：<input name="username" type="text"></p>
+        {% if form.username.errors %}
+        <span style="color: red;">
+            {{ form.username.errors| join('<br>') }}
+        </span>
+        {% endif %}
+        <p>密码：<input type="password" name="password">
+        {% if form.password.errors %}
+        <span style="color:red;">
+            {{ form.password.errors | join('<br>') }}</span>
+    {% endif %}
+  </p>
+  <p>
+    <input type="submit" value="注册">
+  </p>
+    </form>
+
+{##}
+{#{% with messages = get_flashed_messages() %}#}
+{#  {% if messages %}#}
+{#    <span style="color:red;">{{ messages | join('<br>') }}</span>#}
+{#  {% endif %}#}
+{#{% endwith %}#}
+
+</body>
+</html>

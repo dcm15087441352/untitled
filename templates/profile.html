@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% with message = get_flashed_messages() %}
+    {% if message %}
+    <ul class="flashes>"
+        {% for message in message %}
+            <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+    {% endif %}
+{% endwith %}
+
+    <h1>{{ user.name }}的个人信息</h1>
+    <p>用户名：{{ user.username }}</p>
+    <p>姓名：{{ user.name }}</p>
+    <p>性别：{{ user.gender }}</p>
+    <p>住址：{{ user.address }}</p>
+    <p>邮箱：{{ user.mail }}</p>
+    <p><a href="{{ url_for('list_users') }}">返回</a></p>
+</body>
+</html>
